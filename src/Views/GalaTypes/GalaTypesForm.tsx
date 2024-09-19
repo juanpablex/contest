@@ -13,7 +13,6 @@ const GalaTypesForm = ({ entity, submitted ,parent}: Args) => {
     e.preventDefault();
     //concret.modal=parent;
     submitted(concrete);
-   // console.log("state: ", concret);
   };
 
   return (
