@@ -12,6 +12,10 @@ import GalaTypesList from '../Views/GalaTypes/GalaTypesList';
 import GalaTypesAdd from '../Views/GalaTypes/GalaTypesAdd';
 import GalaTypesDetail from '../Views/GalaTypes/GalaTypesDetail';
 import GalaTypesEdit from '../Views/GalaTypes/GalaTypesEdit';
+import JuriesAdd from '../Views/Juries/JuriesAdd';
+import JuriesDetail from '../Views/Juries/JuriesDetail';
+import JuriesEdit from '../Views/Juries/JuriesEdit';
+import JuriesList from '../Views/Juries/JuriesList';
 
 function App() {
   return (
@@ -29,6 +33,11 @@ function App() {
         <Route path="/galaTypes/add" element={<GalaTypesAdd/>}></Route>
         <Route path="/galaTypes/edit/:id" element={<GalaTypesEdit/>}></Route>
         <Route path="/galaTypes/:id" element={<GalaTypesDetail/>}></Route>
+
+        <Route path="/juries" element={<JuriesList/>}></Route>
+        <Route path="/juries/add" element={<JuriesAdd/>}></Route>
+        <Route path="/juries/edit/:id" element={<JuriesEdit/>}></Route>
+        <Route path="/juries/:id" element={<JuriesDetail/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>

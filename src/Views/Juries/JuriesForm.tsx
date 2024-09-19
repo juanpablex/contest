@@ -32,9 +32,25 @@ const JuriesForm = ({ entity, submitted ,parent}: Args) => {
         : 
         null}
       </div>
+
+      <div className="form-group mt-2">
+        <label htmlFor="country">Genero</label>
+        {concrete!=null? 
+         <input
+         type="text"
+         className="form-control"
+         placeholder="Nombre"
+         value={concrete.gender}
+         onChange={(e) =>
+          setConcrete({ ...concrete, gender: e.target.value })
+         }
+       />
+        : 
+        null}
+      </div>
       <button
         className="btn btn-primary mt-2"
-        disabled={!concrete.name}
+        disabled={!concrete.name && !concrete.gender}
         onClick={onSubmit}
       >
         Guardar

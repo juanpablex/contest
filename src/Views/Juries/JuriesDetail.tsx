@@ -31,7 +31,7 @@ const JuriesDetail = () => {
     <div className="row" >
       <div className="row mb-2">
         <h5 className="themeFontColor text-center">
-          Estados
+          Jurados
         </h5>
       </div>
       <div className="col-6">

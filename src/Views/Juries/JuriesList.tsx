@@ -18,7 +18,7 @@ const JuriesList = () => {
     <div>
       <div className="row mb-2">
         <h5 className="themeFontColor text-center">
-          Estados
+          Jurados
         </h5>
       </div>
       <div style={containerStyle}>
@@ -26,6 +26,7 @@ const JuriesList = () => {
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Genero</th>
             </tr>
           </thead>
             <tbody >
@@ -33,6 +34,7 @@ const JuriesList = () => {
             dataEntity.map((h: Juries) => (
               <tr key={h.id} onClick={() => nav(`/juries/${h.id}`)}>
                 <td>{h.name}</td>
+                <td>{h.gender}</td>
               </tr>
             ))}
             </tbody>

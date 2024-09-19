@@ -67,8 +67,8 @@ export default (_props: any) => {
       <Link to="/models" className="menu-item" onClick={closeMenu}>
         Modelos
       </Link>
-      <Link to="/colors" className="menu-item" onClick={closeMenu}>
-        Colores
+      <Link to="/juries" className="menu-item" onClick={closeMenu}>
+        Jurados
       </Link>
       <Link to="/galaTypes" className="menu-item" onClick={closeMenu}>
         Tipos de Galas
