@@ -78,7 +78,7 @@ const useUpdateEntity = <T>({endpoint,navTo=""}:EntityOptions) => {
 // Generic hook for deleting an entity
 const useDeleteEntity = <T>({endpoint,navTo=""}:EntityOptions) => {
   const queryClient = useQueryClient();
-  const nav = useNavigate();
+  const nav = useNavigate(); 
 
   return useMutation({
     mutationFn: async (entity: T) => {
