@@ -1,12 +1,14 @@
-import { useAddStates } from "../../hooks/StatesHooks";
+import { useAddEntity } from "../../hooks/useEntityManager";
 import { States } from "../../types/states";
 import ValidationSummary from "../../ValidationSummary";
 import StatesForm from "./StatesForm";
 
 const StatesAdd = () => {
-  const addStatesMutation = useAddStates();
+  const addEntityMutation = useAddEntity<States>({
+    endpoint: '/api/States',
+    navTo: '/states'});
 
-  const states: States = {
+  const entity: States = {
     id:0,
     name: "",
     modal:""
@@ -14,13 +16,13 @@ const StatesAdd = () => {
 
   return (
     <>
-      {addStatesMutation.isError && (
-        <ValidationSummary error={addStatesMutation.error} />
+      {addEntityMutation.isError && (
+        <ValidationSummary error={addEntityMutation.error} />
       )}
       <StatesForm
-        entity={states}
-        submitted={(states) => addStatesMutation.mutate(states)}
-        parent = {states.modal}
+        entity={entity}
+        submitted={(entity) => addEntityMutation.mutate(entity)}
+        parent = {entity.modal}
       />
     </>
   );

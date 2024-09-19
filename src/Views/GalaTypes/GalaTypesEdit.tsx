@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import ApiStatus from "../../apiStatus";
-import { useFetchGalaType, useUpdateGalaTypes } from "../../hooks/GalaTypesHooks";
 import ValidationSummary from "../../ValidationSummary";
 import GalaTypesForm from "./GalaTypesForm";
 import { useFetchEntity, useUpdateEntity } from "../../hooks/useEntityManager";

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ApiStatus from "../../apiStatus";
 import {containerStyle} from "../../config";
-import { useFetchGalaTypes } from "../../hooks/GalaTypesHooks";
 import { GalaTypes } from "../../types/galaTypes";
 import { useFetchEntities } from "../../hooks/useEntityManager";
 

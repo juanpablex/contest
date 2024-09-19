@@ -1,16 +1,25 @@
 import { useParams } from "react-router-dom";
 import ApiStatus from "../../apiStatus";
-import { useFetchState, useUpdateStates } from "../../hooks/StatesHooks";
 import ValidationSummary from "../../ValidationSummary";
 import StatesForm from "./StatesForm";
+import { useFetchEntity, useUpdateEntity } from "../../hooks/useEntityManager";
+import { States } from "../../types/states";
 
 const StatesEdit = () => {
   const { id } = useParams();
   if (!id) throw Error("Need a state id");
   const entityId = parseInt(id);
 
-  const { data, status, isSuccess } = useFetchState(entityId);
-  const updateEntityMutation = useUpdateStates();
+  const { data, status, isSuccess } = useFetchEntity<States>(
+    {id: entityId, 
+     endpoint: '/api/States',
+     navTo:'/states'
+    });
+
+  const updateEntityMutation = useUpdateEntity<States>(
+    {endpoint: '/api/States',
+     navTo:'/states'
+    });
 
   if (!isSuccess) return <ApiStatus status={status} />;
 
@@ -21,8 +30,8 @@ const StatesEdit = () => {
       )}
       <StatesForm
         entity={data}
-        submitted={(state) => {
-          updateEntityMutation.mutate(state);
+        submitted={(entity) => {
+          updateEntityMutation.mutate(entity);
         } } parent={null}      />
     </>
   );

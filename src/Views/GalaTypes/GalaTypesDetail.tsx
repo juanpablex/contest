@@ -1,17 +1,15 @@
 
-import { Link, useParams } from "react-router-dom";
-import {  useFetchState,useDeleteStates } from "../../hooks/StatesHooks";
+import {  useParams } from "react-router-dom";
 import ApiStatus from "../../apiStatus";
 import GalaTypesList from "./GalaTypesList";
 import ActionButtons from "../../components/ActionButtons";
-import { useDeleteGalaTypes, useFetchGalaType } from "../../hooks/GalaTypesHooks";
 import { useDeleteEntity, useFetchEntity } from "../../hooks/useEntityManager";
 import { GalaTypes } from "../../types/galaTypes";
 
 const GalaTypesDetail = () => {
   const { id} = useParams();
 
-  const tableName="States";
+  const tableName="GalaTypes";
   if (!id) throw Error(`${tableName} id not found`);
   const entityId = parseInt(id);
 

@@ -8,11 +8,11 @@ type Args = {
 };
 
 const GalaTypesForm = ({ entity, submitted ,parent}: Args) => {
-  const [concret, setConcret] = useState({ ...entity });
+  const [concrete, setConcrete] = useState({ ...entity });
   const onSubmit: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault();
     //concret.modal=parent;
-    submitted(concret);
+    submitted(concrete);
    // console.log("state: ", concret);
   };
 
@@ -20,14 +20,14 @@ const GalaTypesForm = ({ entity, submitted ,parent}: Args) => {
     <form className="mt-2">
       <div className="form-group mt-2">
         <label htmlFor="country">Nombre</label>
-        {concret!=null? 
+        {concrete!=null? 
          <input
          type="text"
          className="form-control"
          placeholder="Nombre"
-         value={concret.name}
+         value={concrete.name}
          onChange={(e) =>
-            setConcret({ ...concret, name: e.target.value })
+            setConcrete({ ...concrete, name: e.target.value })
          }
        />
         : 
@@ -35,7 +35,7 @@ const GalaTypesForm = ({ entity, submitted ,parent}: Args) => {
       </div>
       <button
         className="btn btn-primary mt-2"
-        disabled={!concret.name}
+        disabled={!concrete.name}
         onClick={onSubmit}
       >
         Guardar

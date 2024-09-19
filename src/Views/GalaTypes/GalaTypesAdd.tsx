@@ -1,4 +1,4 @@
-import { useAddGalaTypes } from "../../hooks/GalaTypesHooks";
+
 import { useAddEntity } from "../../hooks/useEntityManager";
 import { GalaTypes } from "../../types/galaTypes";
 import ValidationSummary from "../../ValidationSummary";

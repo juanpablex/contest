@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ApiStatus from "../../apiStatus";
 import {containerStyle} from "../../config";
-import { useFetchStates } from "../../hooks/StatesHooks";
 import { States } from "../../types/states";
+import { useFetchEntities } from "../../hooks/useEntityManager";
 
 const StatesList = () => {
   const nav = useNavigate();
-  const { data: dataStates, status:statusStates, isSuccess:isSuccessStates } = useFetchStates();
+  const { data: dataEntity, status:statusEntity, isSuccess:isSuccessEntity } = useFetchEntities<States>(
+    {endpoint: '/api/States',
+     navTo: '/states'
+    });
 
-   if (!isSuccessStates) return <ApiStatus status={statusStates}></ApiStatus>;
+   if (!isSuccessEntity) return <ApiStatus status={statusEntity}></ApiStatus>;
 
   return (
     <div>
@@ -26,8 +29,8 @@ const StatesList = () => {
             </tr>
           </thead>
             <tbody >
-            {dataStates &&
-            dataStates.map((h: States) => (
+            {dataEntity &&
+            dataEntity.map((h: States) => (
               <tr key={h.id} onClick={() => nav(`/states/${h.id}`)}>
                 <td>{h.name}</td>
               </tr>
