@@ -49,20 +49,11 @@ export default (_props: any) => {
       <Link to="/" className="menu-item"  onClick={closeMenu}>
         Home
       </Link>
-      <Link to="/personTypes" className="menu-item" onClick={closeMenu}>
-        Tipo de personas
-      </Link>
-      <Link to="/people" className="menu-item" onClick={closeMenu}>
-        Personas
-      </Link>
       <Link to="/contracts" className="menu-item" onClick={closeMenu}>
         Contratos
       </Link>
       <Link to="/products" className="menu-item" onClick={closeMenu}>
         Productos
-      </Link>
-      <Link to="/brands" className="menu-item" onClick={closeMenu}>
-        Marcas
       </Link>
       <Link to="/participants" className="menu-item" onClick={closeMenu}>
         Participantes
@@ -70,15 +61,16 @@ export default (_props: any) => {
       <Link to="/juries" className="menu-item" onClick={closeMenu}>
         Jurados
       </Link>
+      <Link to="/galas" className="menu-item" onClick={closeMenu}>
+        Galas
+      </Link>
       <Link to="/galaTypes" className="menu-item" onClick={closeMenu}>
         Tipos de Galas
       </Link>
       <Link to="/states" className="menu-item" onClick={closeMenu}>
         Estados
       </Link>
-      <Link to="/ranges" className="menu-item" onClick={closeMenu}>
-        Rangos
-      </Link>
+    
     </Menu>
   );
 };

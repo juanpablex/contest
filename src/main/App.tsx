@@ -20,6 +20,10 @@ import ParticipantsAdd from '../Views/Participants/ParticipantsAdd';
 import ParticipantsDetail from '../Views/Participants/ParticipantsDetail';
 import ParticipantsEdit from '../Views/Participants/ParticipantsEdit';
 import ParticipantsList from '../Views/Participants/ParticipantsList';
+import GalasAdd from '../Views/Galas/GalasAdd';
+import GalasDetail from '../Views/Galas/GalasDetail';
+import GalasEdit from '../Views/Galas/GalasEdit';
+import GalasList from '../Views/Galas/GalasList';
 
 function App() {
   return (
@@ -47,6 +51,11 @@ function App() {
         <Route path="/participants/add" element={<ParticipantsAdd/>}></Route>
         <Route path="/participants/edit/:id" element={<ParticipantsEdit/>}></Route>
         <Route path="/participants/:id" element={<ParticipantsDetail/>}></Route>
+
+        <Route path="/galas" element={<GalasList/>}></Route>
+        <Route path="/galas/add" element={<GalasAdd/>}></Route>
+        <Route path="/galas/edit/:id" element={<GalasEdit/>}></Route>
+        <Route path="/galas/:id" element={<GalasDetail/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>

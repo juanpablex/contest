@@ -30,7 +30,7 @@ const GalaTypesEdit = () => {
         entity={data}
         submitted={(entity) => {
           updateEntityMutation.mutate(entity);
-        } } parent={null}      />
+        } } parent={data.modal}      />
     </>
   );
 };

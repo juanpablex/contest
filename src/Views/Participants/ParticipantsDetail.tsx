@@ -31,7 +31,7 @@ const ParticipantsDetail = () => {
     <div className="row" >
       <div className="row mb-2">
         <h5 className="themeFontColor text-center">
-          Participantes
+          
         </h5>
       </div>
       <div className="col-6">
@@ -45,6 +45,7 @@ const ParticipantsDetail = () => {
           <h3 className="col-12">{dataParticipants.name}</h3>
         </div> */}
         <ActionButtons 
+            display={`${dataEntity.singer} | ${dataEntity.imitator}`}
             entity={dataEntity}
             onDelete={deleteEntityMutation.mutate}
             editPath={`/participants/edit/${dataEntity.id}`}

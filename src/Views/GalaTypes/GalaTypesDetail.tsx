@@ -32,7 +32,7 @@ const GalaTypesDetail = () => {
     <div className="row" >
       <div className="row mb-2">
         <h5 className="themeFontColor text-center">
-          Tipos de Gala
+         
         </h5>
       </div>
       <div className="col-6">
@@ -43,6 +43,7 @@ const GalaTypesDetail = () => {
       </div>
       <div className="col-6" >
         <ActionButtons 
+            display={dataEntity.name}
             entity={dataEntity}
             onDelete={deleteEntityMutation.mutate}
             editPath={`/galaTypes/edit/${dataEntity.id}`}

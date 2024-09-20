@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ActionButtons = ({ entity, onDelete, editPath }) => {
+const ActionButtons = ({ display,entity, onDelete, editPath }) => {
   return (
     <div>
         <div className="row">
-            <h3 className="col-12">{entity.name}</h3>
+            <h3 className="col-12">{display}</h3>
             </div>
         <div className="row mt-3">
         <div className="col-4">

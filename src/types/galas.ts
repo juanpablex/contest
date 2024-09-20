@@ -4,6 +4,7 @@ export type Galas ={
     date: Date,
     quantity: number,
     nominated: number,
-    totalNomintated: number,
-    idType: number
+    totalNominated: number,
+    idType: number,
+    modal:""
 }

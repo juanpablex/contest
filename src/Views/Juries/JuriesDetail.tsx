@@ -31,7 +31,7 @@ const JuriesDetail = () => {
     <div className="row" >
       <div className="row mb-2">
         <h5 className="themeFontColor text-center">
-          Jurados
+          
         </h5>
       </div>
       <div className="col-6">
@@ -45,6 +45,7 @@ const JuriesDetail = () => {
           <h3 className="col-12">{dataJuries.name}</h3>
         </div> */}
         <ActionButtons 
+            display={dataEntity.name}
             entity={dataEntity}
             onDelete={deleteEntityMutation.mutate}
             editPath={`/juries/edit/${dataEntity.id}`}

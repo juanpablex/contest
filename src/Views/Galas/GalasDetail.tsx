@@ -1,31 +1,31 @@
 
 import { Link, useParams } from "react-router-dom";
 import ApiStatus from "../../apiStatus";
-import StatesList from "./StatesList";
+import GalasList from "./GalasList";
 import ActionButtons from "../../components/ActionButtons";
 import { useDeleteEntity, useFetchEntity } from "../../hooks/useEntityManager";
-import { States } from "../../types/states";
+import { Galas } from "../../types/galas";
 
-const StatesDetail = () => {
+const GalasDetail = () => {
   const { id} = useParams();
 
-  const tableName="States";
+  const tableName="Galas";
   if (!id) throw Error(`${tableName} id not found`);
   const entityId = parseInt(id);
 
-  const { data: dataEntity, status: statusEntity, isSuccess:isSuccessEntity } = useFetchEntity<States>(
+  const { data: dataEntity, status: statusEntity, isSuccess:isSuccessEntity } = useFetchEntity<Galas>(
     {id: entityId,
-     endpoint: '/api/States',
-     navTo:'/states'});
+     endpoint: '/api/Galas',
+     navTo:'/galas'});
 
-     const deleteEntityMutation = useDeleteEntity<States>(
-      {endpoint:'/api/States',
-       navTo: '/states'
+     const deleteEntityMutation = useDeleteEntity<Galas>(
+      {endpoint:'/api/Galas',
+       navTo: '/galas'
       });
 
   if (!isSuccessEntity) return <ApiStatus status={statusEntity} />;
 
-  if (!dataEntity) return <div>State not found.</div>;
+  if (!dataEntity) return <div>Gala not found.</div>;
 
   return (
     <div className="row" >
@@ -36,23 +36,23 @@ const StatesDetail = () => {
       </div>
       <div className="col-6">
         <div className="row">
-          <StatesList/>
+          <GalasList/>
         </div>
        
       </div>
       <div className="col-6" >
         {/* <div className="row">
-          <h3 className="col-12">{dataStates.name}</h3>
+          <h3 className="col-12">{dataGalas.name}</h3>
         </div> */}
         <ActionButtons 
-            display={dataEntity.name}
+            display = {dataEntity.day}
             entity={dataEntity}
             onDelete={deleteEntityMutation.mutate}
-            editPath={`/states/edit/${dataEntity.id}`}
+            editPath={`/galas/edit/${dataEntity.id}`}
         />
       </div>
     </div>
   );
 };
 
-export default StatesDetail;
+export default GalasDetail;
