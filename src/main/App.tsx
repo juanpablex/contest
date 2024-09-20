@@ -16,6 +16,10 @@ import JuriesAdd from '../Views/Juries/JuriesAdd';
 import JuriesDetail from '../Views/Juries/JuriesDetail';
 import JuriesEdit from '../Views/Juries/JuriesEdit';
 import JuriesList from '../Views/Juries/JuriesList';
+import ParticipantsAdd from '../Views/Participants/ParticipantsAdd';
+import ParticipantsDetail from '../Views/Participants/ParticipantsDetail';
+import ParticipantsEdit from '../Views/Participants/ParticipantsEdit';
+import ParticipantsList from '../Views/Participants/ParticipantsList';
 
 function App() {
   return (
@@ -38,6 +42,11 @@ function App() {
         <Route path="/juries/add" element={<JuriesAdd/>}></Route>
         <Route path="/juries/edit/:id" element={<JuriesEdit/>}></Route>
         <Route path="/juries/:id" element={<JuriesDetail/>}></Route>
+
+        <Route path="/participants" element={<ParticipantsList/>}></Route>
+        <Route path="/participants/add" element={<ParticipantsAdd/>}></Route>
+        <Route path="/participants/edit/:id" element={<ParticipantsEdit/>}></Route>
+        <Route path="/participants/:id" element={<ParticipantsDetail/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>

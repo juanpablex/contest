@@ -3,5 +3,6 @@ export type Participants ={
     imitator: string,
     singer: string,
     gender: string,
-    age: number
+    age: number,
+    modal: string | null
 }
