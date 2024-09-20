@@ -25,7 +25,10 @@ const ParticipantsList = () => {
         <table className="table table-hover">
           <thead>
             <tr>
-              <th>Nombre</th>
+              <th>Imitador</th>
+              <th>Singer</th>
+              <th>Genero</th>
+              <th>Edad</th>
             </tr>
           </thead>
             <tbody >
