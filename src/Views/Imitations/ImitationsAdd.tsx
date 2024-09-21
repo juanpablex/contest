@@ -20,9 +20,9 @@ const ImitationsAdd = () => {
     rest:0,
     points:0,
     position:0,
-    idState:0,
-    idParticipant:0,
-    idGala:0,
+    stateId:0,
+    participantId:0,
+    galaId:0,
     modal:""
   };
 

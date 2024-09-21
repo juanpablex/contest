@@ -86,14 +86,14 @@ const ImitationsList = () => {
             {dataEntity &&
             dataEntity.map((h: Imitations) => (
               <tr key={h.id} onClick={() => nav(`/imitations/${h.id}`)}>
-                <td>{getGala(h.idGala)}</td>
+                <td>{getGala(h.galaId)}</td>
                 <td>{h.order}</td>
-                <td>{getParticipant(h.idParticipant)}</td>
+                <td>{getParticipant(h.participantId)}</td>
                 <td>{h.song}</td>
                 <td>{h.points}</td>
                 <td>{h.position}</td>
-                <td>{getState(h.idState)}</td>
-                <td>{h.rest}</td>
+                <td>{getState(h.stateId)}</td>
+                <td>{h.rest} Días</td>
               </tr>
             ))}
             </tbody>

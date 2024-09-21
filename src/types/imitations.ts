@@ -5,8 +5,8 @@ export type Imitations ={
     rest: number,
     points: number,
     position: number,
-    idState: number,
-    idParticipant: number,
-    idGala: number,
+    stateId: number,
+    participantId: number,
+    galaId: number,
     modal: string | null
 }

@@ -56,7 +56,7 @@ const GalasList = () => {
                 <td>{h.quantity}</td>
                 <td>{h.nominated}</td>
                 <td>{h.totalNominated}</td>
-                <td>{getGalaType(h.idType)}</td>
+                <td>{getGalaType(h.galaTypeId)}</td>
               </tr>
             ))}
             </tbody>

@@ -49,8 +49,8 @@ export default (_props: any) => {
       <Link to="/" className="menu-item"  onClick={closeMenu}>
         Home
       </Link>
-      <Link to="/contracts" className="menu-item" onClick={closeMenu}>
-        Contratos
+      <Link to="/scores" className="menu-item" onClick={closeMenu}>
+        Puntajes
       </Link>
       <Link to="/imitations" className="menu-item" onClick={closeMenu}>
         Imitaciones

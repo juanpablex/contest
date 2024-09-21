@@ -31,6 +31,11 @@ const GalasEdit = () => {
       {updateEntityMutation.isError && (
         <ValidationSummary error={updateEntityMutation.error} />
       )}
+      <div className="row mb-2">
+        <h5 className="themeFontColor text-center">
+          {data.day.toUpperCase()}
+        </h5>
+      </div>
       <GalasForm
         entity={data}
         submitted={(entity) => {

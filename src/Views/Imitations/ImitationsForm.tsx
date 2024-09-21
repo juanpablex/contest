@@ -51,21 +51,21 @@ const[getStatesId/*,setGetPeopleMethodId*/]=useState<(item: States)=>number>(()=
     const parsedValue = value ? value: "";
     setSelectedValueGala(parsedValue);
     const id = parsedValue;
-    setConcrete({...concrete,idGala:id});
+    setConcrete({...concrete,galaId:id});
     
   }
   const handleChangeParticipant=(value: any)=>{
     const parsedValue = value ? value: "";
     setSelectedValueParticipant(parsedValue);
     const id = parsedValue;
-    setConcrete({...concrete,idParticipant:id});
+    setConcrete({...concrete,participantId:id});
     
   }
   const handleChangeState=(value: any)=>{
     const parsedValue = value ? value: "";
     setSelectedValueState(parsedValue);
     const id = parsedValue;
-    setConcrete({...concrete,idState:id});
+    setConcrete({...concrete,stateId:id});
     
   }
 
@@ -244,8 +244,8 @@ const toggleModalState=(): void=>{
       
       <button
         className="btn btn-primary mt-2"
-        disabled={!concrete.order && !concrete.song && !concrete.rest && !concrete.idState
-                  && !concrete.idParticipant && !concrete.idGala
+        disabled={!concrete.order && !concrete.song && !concrete.rest && !concrete.stateId
+                  && !concrete.participantId && !concrete.galaId
         }
         onClick={onSubmit}
       >

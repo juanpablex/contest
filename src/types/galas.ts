@@ -5,6 +5,6 @@ export type Galas ={
     quantity: number,
     nominated: number,
     totalNominated: number,
-    idType: number,
+    galaTypeId: number,
     modal:string | null
 }

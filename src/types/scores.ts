@@ -4,6 +4,6 @@ export type Scores ={
     criticism: string,
     praice: string,
     recommendations: string,
-    idJury: number,
-    idImitation: number
+    juryId: number,
+    imitationId: number
 }

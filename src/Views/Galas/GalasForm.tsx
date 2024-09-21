@@ -32,7 +32,7 @@ const[getGalaTypeId/*,setGetPeopleMethodId*/]=useState<(item: GalaTypes)=>number
     const parsedValue = value ? value: "";
     setSelectedValueGalaType(parsedValue);
     const id = parsedValue;
-    setConcrete({...concrete,idType:id});
+    setConcrete({...concrete,galaTypeId:id});
     
   }
 
@@ -153,7 +153,7 @@ const closeModalGalaType = (): void => {
       </div>
       <button
         className="btn btn-primary mt-2"
-        disabled={!concrete.day && !concrete.date && !concrete.quantity && !concrete.nominated && !concrete.totalNominated && !concrete.idType}
+        disabled={!concrete.day && !concrete.date && !concrete.quantity && !concrete.nominated && !concrete.totalNominated && !concrete.galaTypeId}
         onClick={onSubmit}
       >
         Guardar

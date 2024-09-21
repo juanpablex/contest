@@ -7,9 +7,8 @@ import { Imitations } from "../../types/imitations";
 import { useQueryClient } from "@tanstack/react-query";
 
 const ImitationsEdit = () => {
-    const queryClient = useQueryClient();
   const { id } = useParams();
-  if (!id) throw Error("Need a state id");
+  if (!id) throw Error("Need a imitation id");
   const entityId = parseInt(id);
   
 
@@ -31,6 +30,11 @@ const ImitationsEdit = () => {
       {updateEntityMutation.isError && (
         <ValidationSummary error={updateEntityMutation.error} />
       )}
+       <div className="row mb-2">
+        <h5 className="themeFontColor text-center">
+          {data.song.toUpperCase()}
+        </h5>
+      </div>
       <ImitationsForm
         entity={data}
         submitted={(entity) => {

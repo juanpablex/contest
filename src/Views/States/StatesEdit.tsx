@@ -28,6 +28,11 @@ const StatesEdit = () => {
       {updateEntityMutation.isError && (
         <ValidationSummary error={updateEntityMutation.error} />
       )}
+      <div className="row mb-2">
+        <h5 className="themeFontColor text-center">
+          {data.name.toUpperCase()}
+        </h5>
+      </div>
       <StatesForm
         entity={data}
         submitted={(entity) => {

@@ -20,7 +20,7 @@ const GalasAdd = () => {
     quantity:0,
     nominated:0,
     totalNominated:0,
-    idType:0,
+    galaTypeId:0,
     modal:""
   };
 
