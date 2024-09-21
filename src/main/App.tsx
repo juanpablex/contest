@@ -24,6 +24,10 @@ import GalasAdd from '../Views/Galas/GalasAdd';
 import GalasDetail from '../Views/Galas/GalasDetail';
 import GalasEdit from '../Views/Galas/GalasEdit';
 import GalasList from '../Views/Galas/GalasList';
+import ImitationsAdd from '../Views/Imitations/ImitationsAdd';
+import ImitationsEdit from '../Views/Imitations/ImitationsEdit';
+import ImitationsList from '../Views/Imitations/ImitationsList';
+import ImitationsDetail from '../Views/Imitations/ImitationsDetail';
 
 function App() {
   return (
@@ -56,6 +60,11 @@ function App() {
         <Route path="/galas/add" element={<GalasAdd/>}></Route>
         <Route path="/galas/edit/:id" element={<GalasEdit/>}></Route>
         <Route path="/galas/:id" element={<GalasDetail/>}></Route>
+
+        <Route path="/imitations" element={<ImitationsList/>}></Route>
+        <Route path="/imitations/add" element={<ImitationsAdd/>}></Route>
+        <Route path="/imitations/edit/:id" element={<ImitationsEdit/>}></Route>
+        <Route path="/imitations/:id" element={<ImitationsDetail/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>

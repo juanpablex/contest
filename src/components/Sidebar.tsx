@@ -52,8 +52,8 @@ export default (_props: any) => {
       <Link to="/contracts" className="menu-item" onClick={closeMenu}>
         Contratos
       </Link>
-      <Link to="/products" className="menu-item" onClick={closeMenu}>
-        Productos
+      <Link to="/imitations" className="menu-item" onClick={closeMenu}>
+        Imitaciones
       </Link>
       <Link to="/participants" className="menu-item" onClick={closeMenu}>
         Participantes

@@ -1,27 +1,27 @@
 import { useParams } from "react-router-dom";
 import ApiStatus from "../../apiStatus";
 import ValidationSummary from "../../ValidationSummary";
-import GalasForm from "./GalasForm";
+import ImitationsForm from "./ImitationsForm";
 import { useFetchEntity, useUpdateEntity } from "../../hooks/useEntityManager";
-import { Galas } from "../../types/galas";
+import { Imitations } from "../../types/imitations";
 import { useQueryClient } from "@tanstack/react-query";
 
-const GalasEdit = () => {
+const ImitationsEdit = () => {
     const queryClient = useQueryClient();
   const { id } = useParams();
   if (!id) throw Error("Need a state id");
   const entityId = parseInt(id);
   
 
-  const { data, status, isSuccess } = useFetchEntity<Galas>(
+  const { data, status, isSuccess } = useFetchEntity<Imitations>(
     {id: entityId, 
-     endpoint: '/api/Galas',
-     navTo:'/galas'
+     endpoint: '/api/Imitations',
+     navTo:'/imitations'
     });
 
-  const updateEntityMutation = useUpdateEntity<Galas>(
-    {endpoint: '/api/Galas',
-     navTo:'/galas'
+  const updateEntityMutation = useUpdateEntity<Imitations>(
+    {endpoint: '/api/Imitations',
+     navTo:'/imitations'
     });
 
   if (!isSuccess) return <ApiStatus status={status} />;
@@ -31,7 +31,7 @@ const GalasEdit = () => {
       {updateEntityMutation.isError && (
         <ValidationSummary error={updateEntityMutation.error} />
       )}
-      <GalasForm
+      <ImitationsForm
         entity={data}
         submitted={(entity) => {
           updateEntityMutation.mutate(entity);
@@ -41,4 +41,4 @@ const GalasEdit = () => {
   );
 };
 
-export default GalasEdit;
+export default ImitationsEdit;

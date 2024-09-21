@@ -7,5 +7,6 @@ export type Imitations ={
     position: number,
     idState: number,
     idParticipant: number,
-    idGala: number
+    idGala: number,
+    modal: string | null
 }
