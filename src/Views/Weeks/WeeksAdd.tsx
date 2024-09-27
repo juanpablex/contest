@@ -1,28 +1,22 @@
 import { useLocation } from "react-router-dom";
 import { useAddEntity } from "../../hooks/useEntityManager";
-import { Galas } from "../../types/galas";
+import { Weeks } from "../../types/weeks";
 import ValidationSummary from "../../ValidationSummary";
-import GalasForm from "./GalasForm";
+import WeeksForm from "./WeeksForm";
 
-const GalasAdd = () => {
-  const addEntityMutation = useAddEntity<Galas>({
-    endpoint: '/api/Galas',
-    navTo: '/galas'});
+const WeeksAdd = () => {
+  const addEntityMutation = useAddEntity<Weeks>({
+    endpoint: '/api/Weeks',
+    navTo: '/weeks'});
 
     const {search} = useLocation();
     const params = new URLSearchParams(search);
     const modal = params.get('modal');
 
-  const entity: Galas = {
+  const entity: Weeks = {
     id:0,
-    day: "",
-    date:new Date(),
-    quantity:0,
-    nominated:0,
-    totalNominated:0,
-    galaTypeId:0,
-    stateId:0,
-    weekId:0,
+    dateIni:new Date(),
+    dateEnd:new Date(),
     modal:""
   };
 
@@ -32,7 +26,7 @@ const GalasAdd = () => {
       {addEntityMutation.isError && (
         <ValidationSummary error={addEntityMutation.error} />
       )}
-      <GalasForm
+      <WeeksForm
         entity={entity}
         submitted={(entity) => addEntityMutation.mutate(entity)}
         parent = {modal}
@@ -41,4 +35,4 @@ const GalasAdd = () => {
   );
 };
 
-export default GalasAdd;
+export default WeeksAdd;

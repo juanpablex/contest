@@ -1,8 +1,8 @@
 import {FC, ReactElement} from 'react';
 import   './Modal.css';
 import { useAddEntity } from '../hooks/useEntityManager';
-import { Galas } from '../types/galas';
-import GalasForm from '../Views/Galas/GalasForm';
+import { Participants } from '../types/participants';
+import ParticipantsForm from '../Views/Participants/ParticipantsForm';
 interface ModalProps{
     open: boolean;
     onClose:()=>void;
@@ -12,21 +12,18 @@ interface ModalProps{
 
 
 
-const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
-    const addEntityMutation = useAddEntity<Galas>({
-        endpoint: '/api/Galas',
-        navTo: '/galas'});
+const ParticipantsModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
+    const addEntityMutation = useAddEntity<Participants>({
+        endpoint: '/api/Participants',
+        navTo: '/participants'});
 
-    const galas: Galas = {
+    const participants: Participants = {
         id: 0,
-        day: "",
-        date:new Date(),
-        quantity:0,
-        nominated:0,
-        totalNominated:0,
-        galaTypeId:0,
+        imitator: "",
+        singer:"",
+        gender:"",
+        age:0,
         stateId:0,
-        weekId:0,
         modal: parent
     };
 
@@ -37,7 +34,7 @@ const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
             <div className="modal-main">
                 <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
                 <div className="modal-head">
-                    <h1>Agregar Tipo de Gala</h1>
+                    <h1>Agregar Participante</h1>
                 </div>
                 <div className="btn-container" style={{marginLeft:'30px'}}>
                     <button style={{fontSize:'30px'}} type="button" className="btn" onClick={onClose}>X</button>
@@ -45,9 +42,9 @@ const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
                 </div>
                 
                 <div className="modal-body">
-                    <GalasForm
-                        entity ={galas}
-                        submitted={(galas) => {addEntityMutation.mutate(galas);onClose()}}            
+                    <ParticipantsForm
+                        entity ={participants}
+                        submitted={(participants) => {addEntityMutation.mutate(participants);onClose()}}            
                         parent ={parent}       />
                 </div>
             </div>
@@ -55,4 +52,4 @@ const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
     );
 };
 
-export default GalasModal;
+export default ParticipantsModal;

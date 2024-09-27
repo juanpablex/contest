@@ -12,6 +12,7 @@ const JuriesAdd = () => {
     id:0,
     name: "",
     gender:"",
+    description:"",
     modal:""
   };
 

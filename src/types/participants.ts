@@ -4,5 +4,6 @@ export type Participants ={
     singer: string,
     gender: string,
     age: number,
+    stateId:number,
     modal: string | null
 }

@@ -1,8 +1,8 @@
 import {FC, ReactElement} from 'react';
 import   './Modal.css';
 import { useAddEntity } from '../hooks/useEntityManager';
-import { Participants } from '../types/participants';
-import ParticipantsForm from '../Views/Participants/ParticipantsForm';
+import { Weeks } from '../types/weeks';
+import WeeksForm from '../Views/Weeks/WeeksForm';
 interface ModalProps{
     open: boolean;
     onClose:()=>void;
@@ -12,17 +12,15 @@ interface ModalProps{
 
 
 
-const ParticipantsModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
-    const addEntityMutation = useAddEntity<Participants>({
-        endpoint: '/api/Participants',
-        navTo: '/participants'});
+const WeeksModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
+    const addEntityMutation = useAddEntity<Weeks>({
+        endpoint: '/api/Weeks',
+        navTo: '/weeks'});
 
-    const participants: Participants = {
+    const weeks: Weeks = {
         id: 0,
-        imitator: "",
-        singer:"",
-        gender:"",
-        age:0,
+        dateIni: new Date(),
+        dateEnd:new Date(),
         modal: parent
     };
 
@@ -33,7 +31,7 @@ const ParticipantsModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Eleme
             <div className="modal-main">
                 <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
                 <div className="modal-head">
-                    <h1>Agregar Participante</h1>
+                    <h1>Agregar Semana</h1>
                 </div>
                 <div className="btn-container" style={{marginLeft:'30px'}}>
                     <button style={{fontSize:'30px'}} type="button" className="btn" onClick={onClose}>X</button>
@@ -41,9 +39,9 @@ const ParticipantsModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Eleme
                 </div>
                 
                 <div className="modal-body">
-                    <ParticipantsForm
-                        entity ={participants}
-                        submitted={(participants) => {addEntityMutation.mutate(participants);onClose()}}            
+                    <WeeksForm
+                        entity ={weeks}
+                        submitted={(weeks) => {addEntityMutation.mutate(weeks);onClose()}}            
                         parent ={parent}       />
                 </div>
             </div>
@@ -51,4 +49,4 @@ const ParticipantsModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Eleme
     );
 };
 
-export default ParticipantsModal;
+export default WeeksModal;

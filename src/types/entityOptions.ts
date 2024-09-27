@@ -1,5 +1,6 @@
 export type EntityOptions={
     id?: number;
     endpoint: string;
-    navTo?:string
+    navTo?:string,
+    enabled?: boolean
   }

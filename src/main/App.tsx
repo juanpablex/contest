@@ -28,6 +28,18 @@ import ImitationsAdd from '../Views/Imitations/ImitationsAdd';
 import ImitationsEdit from '../Views/Imitations/ImitationsEdit';
 import ImitationsList from '../Views/Imitations/ImitationsList';
 import ImitationsDetail from '../Views/Imitations/ImitationsDetail';
+import ScoresAdd from '../Views/Scores/ScoresAdd';
+import ScoresDetail from '../Views/Scores/ScoresDetail';
+import ScoresEdit from '../Views/Scores/ScoresEdit';
+import ScoresList from '../Views/Scores/ScoresList';
+import WeeksAdd from '../Views/Weeks/WeeksAdd';
+import WeeksDetail from '../Views/Weeks/WeeksDetail';
+import WeeksEdit from '../Views/Weeks/WeeksEdit';
+import WeeksList from '../Views/Weeks/WeeksList';
+import WeeklyPointsAdd from '../Views/WeeklyPoints/WeeklyPointsAdd';
+import WeeklyPointsDetail from '../Views/WeeklyPoints/WeeklyPointsDetail';
+import WeeklyPointsEdit from '../Views/WeeklyPoints/WeeklyPointsEdit';
+import WeeklyPointsList from '../Views/WeeklyPoints/WeeklyPointsList';
 
 function App() {
   return (
@@ -65,6 +77,21 @@ function App() {
         <Route path="/imitations/add" element={<ImitationsAdd/>}></Route>
         <Route path="/imitations/edit/:id" element={<ImitationsEdit/>}></Route>
         <Route path="/imitations/:id" element={<ImitationsDetail/>}></Route>
+
+        <Route path="/scores" element={<ScoresList/>}></Route>
+        <Route path="/scores/add" element={<ScoresAdd/>}></Route>
+        <Route path="/scores/edit/:id" element={<ScoresEdit/>}></Route>
+        <Route path="/scores/:id" element={<ScoresDetail/>}></Route>
+
+        <Route path="/weeks" element={<WeeksList/>}></Route>
+        <Route path="/weeks/add" element={<WeeksAdd/>}></Route>
+        <Route path="/weeks/edit/:id" element={<WeeksEdit/>}></Route>
+        <Route path="/weeks/:id" element={<WeeksDetail/>}></Route>
+
+        <Route path="/weeklyPoints" element={<WeeklyPointsList/>}></Route>
+        <Route path="/weeklyPoints/add" element={<WeeklyPointsAdd/>}></Route>
+        <Route path="/weeklyPoints/edit/:id" element={<WeeklyPointsEdit/>}></Route>
+        <Route path="/weeklyPoints/:id" element={<WeeklyPointsDetail/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>

@@ -5,7 +5,7 @@ import { useFetchEntities, useFetchEntity } from "../../hooks/useEntityManager";
 import { Participants } from "../../types/participants";
 import { States } from "../../types/states";
 import { Galas } from "../../types/galas";
-import ParticipantsModal from "../../modals/ParticipansModal";
+import ParticipantsModal from "../../modals/ParticipantsModal";
 import StatesModal from "../../modals/StatesModal";
 import GalasModal from "../../modals/GalasModal";
 
@@ -201,8 +201,9 @@ const toggleModalState=(): void=>{
          className="form-control"
          placeholder="Puntos"
          value={concrete.points}
+         step="0.1"
          onChange={(e) =>
-          setConcrete({ ...concrete, points: parseInt(e.target.value) })
+          setConcrete({ ...concrete, points: parseFloat(e.target.value) })
          }
        />
         : 

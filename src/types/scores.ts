@@ -5,5 +5,6 @@ export type Scores ={
     praice: string,
     recommendations: string,
     juryId: number,
-    imitationId: number
+    imitationId: number,
+    modal: string | null
 }

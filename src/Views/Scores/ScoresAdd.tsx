@@ -1,28 +1,26 @@
 import { useLocation } from "react-router-dom";
 import { useAddEntity } from "../../hooks/useEntityManager";
-import { Galas } from "../../types/galas";
+import { Scores } from "../../types/scores";
 import ValidationSummary from "../../ValidationSummary";
-import GalasForm from "./GalasForm";
+import ScoresForm from "./ScoresForm";
 
-const GalasAdd = () => {
-  const addEntityMutation = useAddEntity<Galas>({
-    endpoint: '/api/Galas',
-    navTo: '/galas'});
+const ScoresAdd = () => {
+  const addEntityMutation = useAddEntity<Scores>({
+    endpoint: '/api/Scores',
+    navTo: '/scores'});
 
     const {search} = useLocation();
     const params = new URLSearchParams(search);
     const modal = params.get('modal');
 
-  const entity: Galas = {
+  const entity: Scores = {
     id:0,
-    day: "",
-    date:new Date(),
-    quantity:0,
-    nominated:0,
-    totalNominated:0,
-    galaTypeId:0,
-    stateId:0,
-    weekId:0,
+    points:0,
+    praice:"",
+    criticism:"",
+    recommendations:"",
+    juryId:0,
+    imitationId:0,
     modal:""
   };
 
@@ -32,7 +30,7 @@ const GalasAdd = () => {
       {addEntityMutation.isError && (
         <ValidationSummary error={addEntityMutation.error} />
       )}
-      <GalasForm
+      <ScoresForm
         entity={entity}
         submitted={(entity) => addEntityMutation.mutate(entity)}
         parent = {modal}
@@ -41,4 +39,4 @@ const GalasAdd = () => {
   );
 };
 
-export default GalasAdd;
+export default ScoresAdd;

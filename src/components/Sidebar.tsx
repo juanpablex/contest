@@ -49,6 +49,12 @@ export default (_props: any) => {
       <Link to="/" className="menu-item"  onClick={closeMenu}>
         Home
       </Link>
+      <Link to="/weeks" className="menu-item" onClick={closeMenu}>
+        Semanas
+      </Link>
+      <Link to="/weeklyPoints" className="menu-item" onClick={closeMenu}>
+        Puntajes Semanales
+      </Link>
       <Link to="/scores" className="menu-item" onClick={closeMenu}>
         Puntajes
       </Link>

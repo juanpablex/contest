@@ -14,6 +14,7 @@ const useFetchEntities = <T>({endpoint,navTo=""}:EntityOptions) => {
       return response.data["data"];
     }
   });
+
 };
 
 // Generic hook for fetching a single entity by ID

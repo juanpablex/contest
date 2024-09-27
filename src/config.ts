@@ -34,7 +34,7 @@ export const fetcher=(url:string)=>api.get(url).then((res)=>res.data);
   };
 
   const webkitScrollbarStyle = {
-    '&::-webkit-scrollbar': {
+    '&::WebkitScrollbar': {
       width: 0,
     } as React.CSSProperties,
   };
@@ -72,7 +72,7 @@ export const fetcher=(url:string)=>api.get(url).then((res)=>res.data);
   };
 
   const webkitScrollbarStyleDetails = {
-    '&::-webkit-scrollbar': {
+    '&::WebkitScrollbar': {
       width: 0,
     } as React.CSSProperties,
   };
@@ -92,7 +92,7 @@ export const fetcher=(url:string)=>api.get(url).then((res)=>res.data);
     overflow: 'auto',
     msOverflowStyle: 'none', // Hide scrollbar for IE and Edge
     scrollbarWidth: 'none', // Hide scrollbar for Firefox
-    "&::-webkit-scrollbar": {
+    "&::WebkitScrollbar": {
       width: 0, // Hide scrollbar for Chrome, Safari, and Opera
     },
   }

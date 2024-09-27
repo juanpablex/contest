@@ -14,6 +14,7 @@ const ParticipantsAdd = () => {
     singer:"",
     gender:"",
     age:0,
+    stateId:0,
     modal:""
   };
 

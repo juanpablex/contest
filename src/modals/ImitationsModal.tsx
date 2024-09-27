@@ -1,8 +1,8 @@
 import {FC, ReactElement} from 'react';
 import   './Modal.css';
 import { useAddEntity } from '../hooks/useEntityManager';
-import { Galas } from '../types/galas';
-import GalasForm from '../Views/Galas/GalasForm';
+import { Imitations } from '../types/imitations';
+import ImitationsForm from '../Views/Imitations/ImitationsForm';
 interface ModalProps{
     open: boolean;
     onClose:()=>void;
@@ -12,21 +12,21 @@ interface ModalProps{
 
 
 
-const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
-    const addEntityMutation = useAddEntity<Galas>({
-        endpoint: '/api/Galas',
-        navTo: '/galas'});
+const ImitationsModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
+    const addEntityMutation = useAddEntity<Imitations>({
+        endpoint: '/api/Imitations',
+        navTo: '/imitations'});
 
-    const galas: Galas = {
+    const imitations: Imitations = {
         id: 0,
-        day: "",
-        date:new Date(),
-        quantity:0,
-        nominated:0,
-        totalNominated:0,
-        galaTypeId:0,
+        order: 0,
+        song:"",
+        rest:0,
+        points:0,
+        position:0,
         stateId:0,
-        weekId:0,
+        participantId:0,
+        galaId:0,
         modal: parent
     };
 
@@ -37,7 +37,7 @@ const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
             <div className="modal-main">
                 <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
                 <div className="modal-head">
-                    <h1>Agregar Tipo de Gala</h1>
+                    <h1>Agregar Imitacion</h1>
                 </div>
                 <div className="btn-container" style={{marginLeft:'30px'}}>
                     <button style={{fontSize:'30px'}} type="button" className="btn" onClick={onClose}>X</button>
@@ -45,9 +45,9 @@ const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
                 </div>
                 
                 <div className="modal-body">
-                    <GalasForm
-                        entity ={galas}
-                        submitted={(galas) => {addEntityMutation.mutate(galas);onClose()}}            
+                    <ImitationsForm
+                        entity ={imitations}
+                        submitted={(imitations) => {addEntityMutation.mutate(imitations);onClose()}}            
                         parent ={parent}       />
                 </div>
             </div>
@@ -55,4 +55,4 @@ const GalasModal: FC<ModalProps> = ({ open, onClose , parent}): JSX.Element => {
     );
 };
 
-export default GalasModal;
+export default ImitationsModal;

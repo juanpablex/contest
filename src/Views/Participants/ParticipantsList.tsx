@@ -4,6 +4,7 @@ import ApiStatus from "../../apiStatus";
 import {containerStyle} from "../../config";
 import { Participants } from "../../types/participants";
 import { useFetchEntities } from "../../hooks/useEntityManager";
+import { States } from "../../types/states";
 
 const ParticipantsList = () => {
   const nav = useNavigate();
@@ -11,7 +12,19 @@ const ParticipantsList = () => {
     {endpoint: '/api/Participants',
      navTo: '/participants'
     });
-
+    const { data: dataEntityState } = useFetchEntities<States>(
+      {endpoint: '/api/States',
+       navTo: '/states'
+      });
+      const getState=(id:any)=>{
+        const entity: string[] = [];
+        dataEntityState?.forEach((element: { id: any; name: string; }) => {
+            if(element.id == id){
+                entity.push(element.name);
+            }
+        }); 
+        return entity;
+    }
    if (!isSuccessEntity) return <ApiStatus status={statusEntity}></ApiStatus>;
 
   return (
@@ -29,6 +42,7 @@ const ParticipantsList = () => {
               <th>Singer</th>
               <th>Genero</th>
               <th>Edad</th>
+              <th>Estado</th>
             </tr>
           </thead>
             <tbody >
@@ -39,6 +53,7 @@ const ParticipantsList = () => {
                 <td>{h.singer}</td>
                 <td>{h.gender}</td>
                 <td>{h.age}</td>
+                <td>{getState(h.stateId)}</td>
               </tr>
             ))}
             </tbody>
