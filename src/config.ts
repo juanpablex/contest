@@ -96,7 +96,12 @@ export const fetcher=(url:string)=>api.get(url).then((res)=>res.data);
       width: 0, // Hide scrollbar for Chrome, Safari, and Opera
     },
   }
+
+  const formatDate = (dateString: string) => {
+    const [year, month, day] = dateString.split('-');
+    return `${day}-${month}-${year}`;
+  };
   
   export default Config;
-  export { currencyFormatter ,containerStyle,containerStylePhone, containerStyleDetails,containerStyleList};
+  export { currencyFormatter ,containerStyle,containerStylePhone, containerStyleDetails,containerStyleList,formatDate};
   

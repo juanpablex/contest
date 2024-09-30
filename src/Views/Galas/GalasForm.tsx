@@ -8,6 +8,7 @@ import { States } from "../../types/states";
 import StatesModal from "../../modals/StatesModal";
 import { Weeks } from "../../types/weeks";
 import WeeksModal from "../../modals/WeeksModal";
+import { formatDate } from "../../config";
 
 type Args = {
   entity: Galas;
@@ -40,6 +41,8 @@ const GalasForm = ({ entity, submitted, parent }: Args) => {
   const [selectedValueGalaType, setSelectedValueGalaType] = useState<string | number | "">("");
   const [selectedValueState, setSelectedValueState] = useState<string | number | "">("");
   const [selectedValueWeek, setSelectedValueWeek] = useState<string | number | "">("");
+
+  const [selectedDate, setSelectedDate] = useState<string>('');
   const [getGalaTypeId/*,setGetPeopleMethodId*/] = useState<(item: GalaTypes) => number>(() => (item: { id: number; }) => item.id);
   const [getStateId/*,setGetPeopleMethodId*/] = useState<(item: States) => number>(() => (item: { id: number; }) => item.id);
   const [getWeekId/*,setGetPeopleMethodId*/] = useState<(item: Weeks) => number>(() => (item: { id: number; }) => item.id);
@@ -106,20 +109,22 @@ const GalasForm = ({ entity, submitted, parent }: Args) => {
       </div>
 
       <div className="form-group mt-2">
-        <label htmlFor="country">Fecha</label>
-        {concrete != null ?
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Fecha"
-            value={concrete.date.toString()}
-            onChange={(e) =>
-              setConcrete({ ...concrete, date: new Date(e.target.value) })
-            }
-          />
-          :
-          null}
-      </div>
+                <label htmlFor="country">Fecha</label>
+                {concrete != null ?
+                    <input
+                        type="date"
+                        className="form-control"
+                        placeholder="Fecha Inicial"
+                        value={concrete.date.toString()}
+                        onChange={(e) => {
+                            setConcrete({ ...concrete, date: new Date(e.target.value) });
+                            setSelectedDate(e.target.value);
+                        }}
+                    />
+                    :
+                    null}
+                <p>Seleccion: {selectedDate?formatDate(selectedDate):''}</p>
+            </div>
 
       <div className="form-group mt-2">
         <label htmlFor="country">Cantidad</label>

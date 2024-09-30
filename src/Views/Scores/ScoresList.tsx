@@ -49,7 +49,7 @@ const ScoresList = () => {
     <div>
       <div className="row mb-2">
         <h5 className="themeFontColor text-center">
-          Scores
+          Puntajes
         </h5>
       </div>
       <div style={containerStyle}>
