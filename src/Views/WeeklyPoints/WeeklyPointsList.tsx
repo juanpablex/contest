@@ -7,9 +7,20 @@ import { useFetchEntities } from "../../hooks/useEntityManager";
 
 import { Participants } from "../../types/participants";
 import { Weeks } from "../../types/weeks";
+import { useEffect, useMemo, useState } from "react";
+
+interface showDataInterface {
+  id: number,
+  participant: string,
+  week: string,
+  points: number,
+  position: number
+}
 
 const WeeklyPointsList = () => {
   const nav = useNavigate();
+  const [sortConfig, setSortConfig] = useState<{ key: keyof showDataInterface; direction: 'asc' | 'desc' } | null>(null);
+  const [showData, setShowData] = useState<showDataInterface[]>([]);
   const { data: dataEntity, status: statusEntity, isSuccess: isSuccessEntity } = useFetchEntities<WeeklyPoints>(
     {
       endpoint: '/api/WeeklyPoints',
@@ -25,6 +36,12 @@ const WeeklyPointsList = () => {
         endpoint: '/api/Weeks',
         navTo: '/weeks'
       });
+
+      useEffect(() => {
+        if (dataEntity && dataEntityParticipant && dataEntityWeek) {
+          showDataDetails();
+        }
+      }, [dataEntity, dataEntityParticipant, dataEntityWeek]);
   const getParticipant = (id: any) => {
     const entity: string[] = [];
     dataEntityParticipant?.forEach((element: { id: any; singer: string; }) => {
@@ -44,7 +61,44 @@ const WeeklyPointsList = () => {
     return entity;
   }
 
+  const showDataDetails = () => {
+    const newDataArray: showDataInterface[] = [];
+    dataEntity?.forEach(score => {
+     
+      const week = dataEntityWeek?.find(e => e.id == score?.weekId);
+      const participant = dataEntityParticipant?.find(e => e.id == score?.participantId);
+      const w = week?.dateIni??"";
+      const newData: showDataInterface = {
+        id: score.id, participant: participant?.singer ?? "",
+        week: w.toString().split("T")[0], points: score.points,
+        position: score.position
+      }
+      setShowData([...showData, newData]);
+      newDataArray.push(newData);
+    });
+    setShowData(newDataArray);
+  }
+  const handleSort = (key: keyof showDataInterface) => {
+    let direction: 'asc' | 'desc' = 'asc';
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
 
+  const sortedData = useMemo(() => {
+    if (!sortConfig) return showData;
+
+    return [...showData].sort((a, b) => {
+      if (a[sortConfig.key] < b[sortConfig.key]) {
+        return sortConfig.direction === 'asc' ? -1 : 1;
+      }
+      if (a[sortConfig.key] > b[sortConfig.key]) {
+        return sortConfig.direction === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+  }, [showData, sortConfig]);
   if (!isSuccessEntity) return <ApiStatus status={statusEntity}></ApiStatus>;
 
   return (
@@ -58,18 +112,29 @@ const WeeklyPointsList = () => {
         <table className="table table-hover">
           <thead>
             <tr>
-              <th>Participante</th>
-              <th>Semana</th>
+              <th style={{color:'coral'}} onClick={() => handleSort('participant')}>Participante</th>
+              <th style={{color:'coral'}} onClick={() => handleSort('week')}>Semana</th>
               <th>Puntos</th>
-              <th>Posicion</th>
+              <th style={{color:'coral'}} onClick={() => handleSort('position')}>Posicion</th>
             </tr>
           </thead>
           <tbody >
-            {dataEntity &&
-              dataEntity.map((h: WeeklyPoints) => (
+            {sortedData && Array.isArray(sortedData) &&
+              sortedData
+              // .sort((a, b) => {
+              //   if (a.position === 0) return 1; // Mueve a 'a' al final
+              //   if (b.position === 0) return -1; // Mueve a 'b' al final
+              //   if(orderByPosition){
+              //     return a.position - b.position; // Ordena normalmente
+              //   }else{
+              //     return b.position - a.position; // Ordena normalmente
+              //   }
+                
+              // })
+              .map((h: showDataInterface) => (
                 <tr key={h.id} onClick={() => nav(`/weeklyPoints/${h.id}`)}>
-                  <td>{getParticipant(h.participantId)}</td>
-                  <td>{getWeek(h.weekId)}</td>
+                  <td>{h.participant}</td>
+                  <td>{h.week}</td>
                   <td>{h.points}</td>
                   <td>{h.position}</td>
                 </tr>

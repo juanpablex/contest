@@ -93,6 +93,7 @@ const ScoresForm = ({ entity, submitted, parent }: Args) => {
 
   const handleChangeWeek = (value: any) => {
     const parsedValue = value ? value : "";
+    setConcreteGala([]);
     setSelectedValueWeek(parsedValue);
     const id = parsedValue;
     const galas = dataEntityGala?.filter(e => e.weekId == id);
@@ -101,6 +102,7 @@ const ScoresForm = ({ entity, submitted, parent }: Args) => {
 
   const handleChangeGala = (value: any) => {
     const parsedValue = value ? value : "";
+    setConcreteParticipant([]);
     setSelectedValueGala(parsedValue);
     const id = parsedValue;
     const imitations = dataEntityImitation?.filter(e => e.galaId == id);
@@ -316,12 +318,12 @@ const ScoresForm = ({ entity, submitted, parent }: Args) => {
           null}
       </div>
       <div className="form-group mt-2">
-        <label htmlFor="country">Alagos</label>
+        <label htmlFor="country">Halagos</label>
         {concrete != null ?
           <input
             type="text"
             className="form-control"
-            placeholder="Alagos"
+            placeholder="Halagos"
             value={concrete.praice}
             onChange={(e) =>
               setConcrete({ ...concrete, praice: e.target.value })

@@ -34,8 +34,8 @@ const WeeksList = () => {
             {dataEntity &&
             dataEntity.map((h: Weeks) => (
               <tr key={h.id} onClick={() => nav(`/weeks/${h.id}`)}>
-                <td>{h.dateIni.toString()}</td>
-                <td>{h.dateEnd.toString()}</td>
+                <td>{h.dateIni.toString().split("T")[0]}</td>
+                <td>{h.dateEnd.toString().split("T")[0]}</td>
               </tr>
             ))}
             </tbody>
